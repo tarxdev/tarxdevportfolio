@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarciso Ferreira - Portfólio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-black page-transition">
+
+    <div id="preloader" class="fixed inset-0 bg-black z-50 flex justify-center items-center">
+        <div class="preloader-container">
+            <div id="preloader-title" class="preloader-title text-5xl sm:text-6xl font-black tracking-tighter">Tarciso Ferreira</div>
+            <div id="preloader-underline" class="preloader-underline"></div>
+        </div>
+    </div>
+
+    <canvas id="aurora-canvas"></canvas>
+    <canvas id="fluid-canvas"></canvas>
+
+    <div id="main-content">
+        <div class="content-wrapper">
+            <div id="menu-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"></div>
+
+            <header class="page-element px-4 sm:px-8 py-4 sm:py-4 fixed top-0 left-0 w-full z-50">
+                <nav class="flex justify-between items-center">
+                    <a href="#" id="nav-brand" class="text-xl sm:text-2xl font-bold tracking-tighter z-50">Tarciso Ferreira</a>
+                    
+                    <div id="nav-right-container">
+                        <div id="home-nav-controls">
+                            <button id="hamburger-btn" class="md:hidden z-50 text-white w-8 h-8 flex flex-col justify-center items-center gap-[5px]">
+                                <span class="block w-6 h-0.5 bg-white"></span>
+                                <span class="block w-6 h-0.5 bg-white"></span>
+                                <span class="block w-6 h-0.5 bg-white"></span>
+                            </button>
+
+                            <div id="desktop-nav-links" class="hidden md:flex items-center space-x-3 sm:space-x-6">
+                                <a href="#sobre" class="nav-link-scroll text-sm sm:text-base text-gray-300 hover:text-white transition-colors">Sobre</a>
+                                <a href="#certificados" data-target="certificados-page" class="nav-link text-sm sm:text-base text-gray-300 hover:text-white transition-colors">Certificados</a>
+                                <a href="#projetos" data-target="projetos-page" class="nav-link text-sm sm:text-base text-gray-300 hover:text-white transition-colors">Projetos</a>
+                                <a href="#artigos" data-target="artigos-page" class="nav-link text-sm sm:text-base text-gray-300 hover:text-white transition-colors">Artigos</a>
+                                <a href="#contato" class="nav-link-scroll text-sm sm:text-base bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-md font-bold hover:bg-blue-700 transition-colors">Contato</a>
+                            </div>
+                        </div>
+                        
+                         <a href="#" id="back-button" class="hidden bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-md font-bold hover:bg-blue-700 transition-colors">
+                            &larr; Voltar
+                        </a>
+                    </div>
+                </nav>
+            </header>
+            
+            <div id="main-nav" class="fixed top-0 right-0 h-full w-full max-w-xs bg-slate-900/90 backdrop-blur-xl z-40 transform translate-x-full">
+                <div class="flex flex-col h-full w-full pt-24 px-8 space-y-2">
+                    <span class="px-4 pb-4 text-sm font-semibold text-gray-400 tracking-wider">MENU</span>
+                    <a href="#sobre" class="mobile-nav-link nav-link nav-link-scroll flex items-center gap-4 text-xl text-gray-200 hover:text-white p-4 rounded-lg hover:bg-white/10 transition-all duration-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                        <span>Sobre</span>
+                    </a>
+                    <a href="#certificados" data-target="certificados-page" class="mobile-nav-link nav-link flex items-center gap-4 text-xl text-gray-200 hover:text-white p-4 rounded-lg hover:bg-white/10 transition-all duration-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M15.232 5.232a3 3 0 0 1 4.243 4.243L12 17l-7.475-7.475a3 3 0 0 1 4.243-4.243L12 7l3.232-1.768z"/><path d="m12 17-1.5-1.5"/></svg>
+                        <span>Certificados</span>
+                    </a>
+                    <a href="#projetos" data-target="projetos-page" class="mobile-nav-link nav-link flex items-center gap-4 text-xl text-gray-200 hover:text-white p-4 rounded-lg hover:bg-white/10 transition-all duration-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                        <span>Projetos</span>
+                    </a>
+                    <a href="#artigos" data-target="artigos-page" class="mobile-nav-link nav-link flex items-center gap-4 text-xl text-gray-200 hover:text-white p-4 rounded-lg hover:bg-white/10 transition-all duration-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        <span>Artigos</span>
+                    </a>
+                    <div class="border-t border-white/10 my-4"></div>
+                    <a href="#contato" class="mobile-nav-link nav-link nav-link-scroll flex items-center justify-center gap-3 bg-blue-600 text-white px-6 py-4 rounded-lg font-bold hover:bg-blue-700 transition-colors text-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        <span>Contato</span>
+                    </a>
+                </div>
+            </div>
+
+            <div id="home-page" class="page-content">
+                <main class="flex flex-col justify-center px-4 sm:px-8 pt-32 pb-16 md:min-h-screen md:pt-10 md:pb-0">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="text-center md:text-left">
+                            <h1 class="text-6xl sm:text-7xl lg:text-8xl font-black tracking-tighter leading-none">
+                                TRANSFORMANDO IDEIAS EM REALIDADE DIGITAL.
+                            </h1>
+                            <div class="mt-12 flex justify-center md:justify-start">
+                                <a href="#sobre" class="scroll-arrow">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="space-y-6 text-center md:text-left">
+                             <div class="p-6 rounded-lg border border-blue-500/30 card-base">
+                                <h2 class="text-2xl font-bold">Olá! Eu sou Tarciso.</h2>
+                                <p class="mt-2 text-gray-300">
+                                    Um desenvolvedor e designer apaixonado por criar experiências web interativas e memoráveis. A minha missão é combinar tecnologia de ponta com design intuitivo para construir produtos que as pessoas amam usar.
+                                </p>
+                                <a href="#projetos" data-target="projetos-page" class="nav-link inline-block mt-6 font-bold group text-white">
+                                    Veja os meus projetos
+                                    <span class="inline-block transition-transform group-hover:translate-x-2">→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+                <section id="sobre" class="py-16 sm:py-24 flex items-center justify-center reveal">
+                    <div class="max-w-3xl text-center px-4">
+                        <h2 class="text-4xl font-bold mb-4">Sobre Mim</h2>
+                        <p class="text-lg text-gray-300">Aqui pode escrever uma biografia mais detalhada sobre a sua jornada, as suas competências, tecnologias que domina (ex: C#, .NET, Docker, AWS, SQL) e a sua filosofia de trabalho.</p>
+                    </div>
+                </section>
+
+                                <section id="certificados" class="py-16 sm:py-24 w-full reveal">
+                    <div class="max-w-7xl mx-auto text-center">
+                        <h2 class="text-4xl font-bold mb-12">Certificados em Destaque</h2>
+                        <div id="gallery-container-certs"></div>
+                    </div>
+                </section>
+                
+                <section id="projetos" class="py-16 sm:py-24 w-full reveal">
+                    <div class="max-w-7xl mx-auto text-center">
+                        <h2 class="text-4xl font-bold mb-12">Projetos em Destaque</h2>
+                        <div id="gallery-container-projs"></div>
+                    </div>
+                </section>
+                
+                <section id="artigos" class="py-16 sm:py-24 w-full reveal">
+                    <div class="max-w-7xl mx-auto text-center">
+                        <h2 class="text-4xl font-bold mb-12">Artigos em Destaque</h2>
+                        <div id="gallery-container-arts"></div>
+                    </div>
+                </section>
+
+                <section id="contato" class="py-16 sm:py-24 p-4 sm:p-8 flex items-center justify-center reveal">
+                    <div class="max-w-xl w-full text-center">
+                        <h2 class="text-4xl font-bold mb-4">Vamos Conversar</h2>
+                        <p class="text-lg text-gray-300 mb-8">Estou sempre aberto a novas oportunidades e colaborações. Sinta-se à vontade para entrar em contacto.</p>
+                        <form id="contact-form" class="space-y-6 text-left">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-300">Nome</label>
+                                <input type="text" id="name" name="name" required class="mt-1 block w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-300">Email</label>
+                                <input type="email" id="email" name="email" required class="mt-1 block w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-300">Mensagem</label>
+                                <textarea id="message" name="message" rows="4" required class="mt-1 block w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                            </div>
+                            <div class="text-center">
+                                 <button type="submit" id="submit-btn" class="bg-blue-600 text-white px-8 py-4 rounded-md font-bold hover:bg-blue-700 transition-all duration-300 text-xl w-full sm:w-auto">
+                                    <span class="submit-text">Enviar Mensagem</span>
+                                </button>
+                            </div>
+                        </form>
+                        <div id="form-success-message" class="hidden mt-6 p-4 bg-green-800/50 text-green-300 border border-green-600 rounded-md">
+                            Mensagem enviada com sucesso! Obrigado pelo contacto.
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="net-details-page" class="page-content hidden p-4 sm:p-8 pt-24 sm:pt-32">
+                 <main class="max-w-7xl mx-auto">
+                    <section id="certificado-detalhe" class="mb-20">
+                        <h1 class="text-4xl sm:text-5xl font-bold tracking-tighter text-center mb-12">Formação .NET Developer</h1>
+                        <div class="card-base rounded-lg p-6 sm:p-8 flex flex-col md:flex-row items-center gap-8">
+                            <div class="md:w-1/3 w-full">
+                                 <img src="https://i.ibb.co/gb70xyVm/Captura-de-tela-18-7-2025-234143.jpg" alt="Certificado de Conclusão da Trilha .NET" class="rounded-md shadow-lg w-full">
+                            </div>
+                            <div class="md:w-2/3 w-full text-center md:text-left">
+                                <h3 class="text-2xl sm:text-3xl font-bold text-blue-400">Formação Completa</h3>
+                                <p class="text-lg text-gray-300 mt-2">Digital Innovation One (DIO)</p>
+                                <p class="mt-4 text-gray-400">
+                                    Formação completa cobrindo os fundamentos da linguagem C#, Programação Orientada a Objetos, SQL, ASP.NET Core para criação de APIs e muito more.
+                                </p>
+                                <a href="https://web.dio.me/certificates" target="_blank" class="inline-block mt-6 bg-blue-600 text-white px-6 py-3 rounded-md font-bold hover:bg-blue-700 transition-colors">
+                                    Ver Credencial
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="projetos-relacionados">
+                        <h2 class="text-3xl font-bold mb-8 text-center sm:text-left">Projetos desenvolvidos no curso</h2>
+                        <div id="net-projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+                    </section>
+                 </main>
+            </div>
+
+            <footer id="page-footer" class="fixed bottom-0 left-0 w-full bg-black py-4 border-t border-gray-800 overflow-hidden">
+                <div class="flex whitespace-nowrap">
+                    <div class="marquee-content flex-shrink-0 flex items-center pr-8">
+                        <span class="mx-4 text-gray-400">Desenvolvedor Full Stack</span><span class="text-blue-500 mx-2">•</span>
+                        <span class="mx-4 text-gray-400">Soluções Criativas com Código e Design</span><span class="text-blue-500 mx-2">•</span>
+                        <span class="mx-4 text-gray-400">Especialista em UI/UX</span><span class="text-blue-500 mx-2">•</span>
+                        <span class="mx-4 text-gray-400">Otimização de Performance Web</span><span class="text-blue-500 mx-2">•</span>
+                        <span class="mx-4 text-gray-400">Criando Experiências Digitais Inovadoras</span><span class="text-blue-500 mx-2">•</span>
+                        <span class="mx-4 text-gray-400">Colaborativo e Orientado a Soluções</span><span class="text-blue-500 mx-2">•</span>
+                        <span class="mx-4 text-gray-400">Pronto para o Próximo Desafio</span><span class="text-blue-500 mx-2">•</span>
+                    </div>
+                    <div class="marquee-content flex-shrink-0 flex items-center pr-8" aria-hidden="true">
+                        <span class="mx-4 text-gray-400">Desenvolvedor Full Stack</span><span class="text-blue-500 mx-2">•</span>
+                        <span class="mx-4 text-gray-400">Soluções Criativas com Código e Design</span><span class="text-blue-500 mx-2">•</span>
+                        <span class="mx-4 text-gray-400">Especialista em UI/UX</span><span class="text-blue-500 mx-2">•</span>
+                        <span class="mx-4 text-gray-400">Otimização de Performance Web</span><span class="text-blue-500 mx-2">•</span>
+                        <span class="mx-4 text-gray-400">Criando Experiências Digitais Inovadoras</span><span class="text-blue-500 mx-2">•</span>
+                        <span class="mx-4 text-gray-400">Colaborativo e Orientado a Soluções</span><span class="text-blue-500 mx-2">•</span>
+                        <span class="mx-4 text-gray-400">Pronto para o Próximo Desafio</span><span class="text-blue-500 mx-2">•</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script type="module" src="js/main.js"></script>
+    <script src="js/fluidcursor.js" defer></script>
+</body>
+</html>
