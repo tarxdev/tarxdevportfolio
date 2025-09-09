@@ -351,11 +351,22 @@ document.addEventListener('DOMContentLoaded', () => {
         generateProjectCards(allProjects.filter(p => p.tags.includes('.NET') || p.tags.includes('C#')), netProjectsGrid);
     }
 });
-// --- EFEITO DE CURSOR SOMENTE NO DESKTOP ---
-if (window.innerWidth >= 768) {
-    import('./fluidcursor.js')
-        .then(() => console.log("Efeito de cursor ativado no desktop."))
-        .catch(err => console.error("Erro ao carregar fluidcursor.js:", err));
-} else {
-    console.log("Efeito de cursor desativado no mobile.");
+let cursorEffectLoaded = false;
+
+function loadCursorEffect() {
+    if (window.innerWidth >= 768 && !cursorEffectLoaded) {
+        import('./fluidcursor.js')
+            .then(() => {
+                cursorEffectLoaded = true;
+                console.log("Efeito de cursor ativado no desktop.");
+            })
+            .catch(err => console.error("Erro ao carregar fluidcursor.js:", err));
+    } else if (window.innerWidth < 768 && cursorEffectLoaded) {
+        // Aqui você pode remover o efeito, se necessário
+        cursorEffectLoaded = false;
+        console.log("Efeito de cursor desativado no mobile.");
+    }
 }
+
+window.addEventListener('resize', loadCursorEffect);
+loadCursorEffect();
